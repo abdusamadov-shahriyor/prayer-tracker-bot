@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Prayer Tracker</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- App Container -->
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <button class="nav-btn active" data-view="tracker">📝 Track</button>
+            <button class="nav-btn" data-view="analytics">📊 Stats</button>
+            <button class="nav-btn" data-view="heatmap">📈 Heatmap</button>
+            <button class="nav-btn" data-view="qaza">📿 Qaza</button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div id="content">
+            <!-- Prayer Tracker View (Default) -->
+            <div id="tracker-view" class="view active">
+                <!-- Streak Counter -->
+                <div class="streak-container">
+                    <div class="streak-badge">
+                        <span class="streak-icon">🔥</span>
+                        <span class="streak-number" id="streakCount">0</span>
+                        <span class="streak-label">Day Streak</span>
+                    </div>
+                </div>
+
+                <!-- Date Navigation -->
+                <div class="date-nav">
+                    <button class="date-btn" id="prevDay">←</button>
+                    <div class="current-date">
+                        <span id="currentDate">Loading...</span>
+                        <button class="today-btn" id="todayBtn">Today</button>
+                    </div>
+                    <button class="date-btn" id="nextDay">→</button>
+                </div>
+
+                <!-- Prayer Grid -->
+                <div class="prayer-grid">
+                    <!-- Fajr -->
+                    <div class="prayer-card" data-prayer="fajr">
+                        <h3 class="prayer-name">🌅 Fajr</h3>
+                        <div class="status-buttons">
+                            <button class="status-btn" data-status="ontime">🔵 On-Time</button>
+                            <button class="status-btn" data-status="jamat">🟢 Jamat</button>
+                            <button class="status-btn" data-status="qaza">🟣 Qaza</button>
+                            <button class="status-btn" data-status="missed">🔴 Missed</button>
+                        </div>
+                    </div>
+
+                    <!-- Dhuhr -->
+                    <div class="prayer-card" data-prayer="dhuhr">
+                        <h3 class="prayer-name">☀️ Dhuhr</h3>
+                        <div class="status-buttons">
+                            <button class="status-btn" data-status="ontime">🔵 On-Time</button>
+                            <button class="status-btn" data-status="jamat">🟢 Jamat</button>
+                            <button class="status-btn" data-status="qaza">🟣 Qaza</button>
+                            <button class="status-btn" data-status="missed">🔴 Missed</button>
+                        </div>
+                    </div>
+
+                    <!-- Asr -->
+                    <div class="prayer-card" data-prayer="asr">
+                        <h3 class="prayer-name">🌤️ Asr</h3>
+                        <div class="status-buttons">
+                            <button class="status-btn" data-status="ontime">🔵 On-Time</button>
+                            <button class="status-btn" data-status="jamat">🟢 Jamat</button>
+                            <button class="status-btn" data-status="qaza">🟣 Qaza</button>
+                            <button class="status-btn" data-status="missed">🔴 Missed</button>
+                        </div>
+                    </div>
+
+                    <!-- Maghrib -->
+                    <div class="prayer-card" data-prayer="maghrib">
+                        <h3 class="prayer-name">🌆 Maghrib</h3>
+                        <div class="status-buttons">
+                            <button class="status-btn" data-status="ontime">🔵 On-Time</button>
+                            <button class="status-btn" data-status="jamat">🟢 Jamat</button>
+                            <button class="status-btn" data-status="qaza">🟣 Qaza</button>
+                            <button class="status-btn" data-status="missed">🔴 Missed</button>
+                        </div>
+                    </div>
+
+                    <!-- Isha -->
+                    <div class="prayer-card" data-prayer="isha">
+                        <h3 class="prayer-name">🌙 Isha</h3>
+                        <div class="status-buttons">
+                            <button class="status-btn" data-status="ontime">🔵 On-Time</button>
+                            <button class="status-btn" data-status="jamat">🟢 Jamat</button>
+                            <button class="status-btn" data-status="qaza">🟣 Qaza</button>
+                            <button class="status-btn" data-status="missed">🔴 Missed</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notes Section -->
+                <div class="notes-section">
+                    <textarea id="dailyNotes" placeholder="Add notes for today... (optional)"></textarea>
+                </div>
+            </div>
+
+            <!-- Analytics View -->
+            <div id="analytics-view" class="view">
+                <h2>📊 Prayer Analytics</h2>
+                <div id="analyticsContent">
+                    <div class="analytics-loading">Loading analytics...</div>
+                </div>
+            </div>
+
+            <!-- Heatmap View -->
+            <div id="heatmap-view" class="view">
+                <h2>📈 Prayer Heatmap</h2>
+                <div id="heatmapContent">
+                    <div class="heatmap-loading">Heatmap view coming soon...</div>
+                </div>
+            </div>
+
+            <!-- Qaza Debt View -->
+            <div id="qaza-view" class="view">
+                <h2>📿 Qaza Debt Tracker</h2>
+                <div id="qazaContent">
+                    <div class="qaza-loading">Loading qaza tracker...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
